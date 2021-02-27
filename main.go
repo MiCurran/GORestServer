@@ -54,6 +54,8 @@ func createNewArticle(w http.ResponseWriter, r *http.Request) {
 	Articles = append(Articles, article)
 
 	json.NewEncoder(w).Encode(article)
+	fmt.Println("POST Hit: createNewArticle", article)
+
 }
 
 func deleteArticle(w http.ResponseWriter, r *http.Request) {
@@ -65,7 +67,7 @@ func deleteArticle(w http.ResponseWriter, r *http.Request) {
 			Articles = append(Articles[:index], Articles[index+1:]...)
 		}
 	}
-
+	fmt.Println("DELETE Hit: deleteArticle id:", id)
 }
 
 func handleRequests() {
